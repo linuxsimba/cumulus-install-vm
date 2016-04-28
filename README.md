@@ -66,8 +66,8 @@ git clone https://github.com/linuxsimba/cumulus-install-vm --recursive
 * When the switch reboots, it comes up in ONIE mode and installs whatever OS is
   specified in the VM's /var/www/onie-installer path.
 
-* It's not obvious when it's done, so I just waited 5 minutes then pinged
-  associated IP. _See ``wbench_hosts`` of the [Vagrantfile](https://github.com/linuxsimba/cumulus-install-vm/blob/master/Vagrantfile)_. After that I confirmed I could ssh to
+* It's not obvious when it's done, so I just waited 5 minutes then pinged the
+  switch's IP. _See ``wbench_hosts`` of the [Vagrantfile](https://github.com/linuxsimba/cumulus-install-vm/blob/master/Vagrantfile)_. After that I confirmed I could ssh to
   the switch root user. Then I ran the Ansible provision script _(not included in
 this repo)_ to configure the L2, L3 config and site specific apps.
   This was the longest step. Wish there was a quick way to
