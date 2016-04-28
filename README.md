@@ -1,15 +1,18 @@
 # Provision Cumulus Switch from ONIE.
 
 
-A simplification of [vagrant-cw-libvirt](). Received a bunch of Quanta switches
+A simplification of
+[vagrant-cw-libvirt](https://github.com/skamithi/vagrant-cw-libvirt). Received a bunch of Quanta switches
 with no Cumulus software. This provided a quick way to install Cumulus Linux and
-provision the switches with the appropriate config. No internet connectivity was
-needed during provisioning.
+provision the switches with the appropriate config. No internet connectivity or
+*console access* was needed during provisioning.
 
 ## Requirements
 
-* Only supports [vagrant-libvirt], so only Linux Laptops.
-  Support and documentation for [vagrant-virtualbox]() is welcome, and then you
+* Only supports
+  [vagrant-libvirt](https://github.com/vagrant-libvirt/vagrant-libvirt), so only Linux Laptops.
+  Support and documentation for
+[vagrant-virtualbox](https://www.vagrantup.com/docs/providers/) is welcome, and then you
   can do this procedure using a MAC or Windows PC.
 
 
@@ -23,7 +26,7 @@ git clone https://github.com/linuxsimba/cumulus-install-vm --recursive
 ```
 
 * Define ``wbench_hosts`` with the correct MAC addresses. Read the
-  [Vagrantfile]() for more details
+  [Vagrantfile](https://github.com/linuxsimba/cumulus-install-vm/blob/master/Vagrantfile) for more details
 
 * Create the VM using ``vagrant up --provider libvirt``. This will provision
   BIND, DHCPD, install ansible and position the cumulus user SSH key as the
@@ -64,7 +67,7 @@ git clone https://github.com/linuxsimba/cumulus-install-vm --recursive
   specified in the VM's /var/www/onie-installer path.
 
 * It's not obvious when it's done, so I just waited 5 minutes then pinged
-  associated IP. (See ``wbench_hosts``). After that I confirmed I could ssh to
+  associated IP. _See ``wbench_hosts`` of the [Vagrantfile](https://github.com/linuxsimba/cumulus-install-vm/blob/master/Vagrantfile)_. After that I confirmed I could ssh to
   the switch root user. Then I ran the Ansible provision script (not included in
 this repo) to all all the L2, L3 config and site specific apps.
   This was the longest step. Wish there was a quick way to
