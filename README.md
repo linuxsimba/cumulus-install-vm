@@ -19,7 +19,7 @@ provision the switches with the appropriate config. No internet connectivity or
 
 ## Workflow
 
-* Clone this repo
+* Clone this repo to your Linux laptop
 
 ```
 git clone https://github.com/linuxsimba/cumulus-install-vm --recursive
