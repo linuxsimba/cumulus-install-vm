@@ -42,7 +42,7 @@ git clone https://github.com/linuxsimba/cumulus-install-vm --recursive
 
 ```
 
-* Git clone the provision scripts to the home directory, if you want to
+* Git clone the provision scripts to the Cumulus user home directory on the VM, if you want to
   completely configure the switch offline.
 
 * Go into the lab, and stitch the physical port of the laptop to the mgmt port of the switch. Make sure to put the physical port and the VM's eth1 on the same software bridge.
