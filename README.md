@@ -19,6 +19,14 @@ provision the switches with the appropriate config. No internet connectivity or
 
 ## Workflow
 
+* Download the ubuntu/trusty64 virtualbox formatted box. And then convert it to a
+  libvirt compatible version
+
+```
+vagrant box add ubuntu/trusty64
+vagrant mutate ubuntu/trusty64 libvirt
+```
+
 * Clone this repo to your Linux laptop
 
 ```

@@ -26,7 +26,7 @@
 ###add your user to the appropriate libvirt or libvirtd group
 #  sudo service libvirt-bin restart
 #
-server_box_name = "boxcutter/ubuntu1404"
+server_box_name = "ubuntu/trusty64"
 
 
 # Uncomment the following lines with wbench_host objects and
