@@ -102,10 +102,11 @@ Vagrant.configure(2) do |config|
   # vagrant issues #1673..fixes hang with configure_networks
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
-  config.vm.define :wbenchvm do |node|
+  config.vm.define :install_vm do |node|
     node.vm.provider :libvirt do |domain|
-      domain.memory = 256
+      domain.memory = 1024
     end
+    config.vm.hostname = 'cumulus-install-vm'
     node.vm.box = server_box_name
     # disabling sync folder support on all VMs
     node.vm.synced_folder '.', '/vagrant', :disabled => true
@@ -116,6 +117,8 @@ Vagrant.configure(2) do |config|
       :libvirt__forward_mode => 'veryisolated',
       :libvirt__dhcp_enabled => false,
       :libvirt__network_name => 'switch_mgmt'
+    node.vm.provision :shell , inline: "sudo apt-get -y update"
+    node.vm.provision :shell, inline: "sudo apt-get -y upgrade"
     node.vm.provision :ansible do |ansible|
       ansible.playbook = 'ccw-wbenchvm-ansible/site.yml'
       ansible.extra_vars = wbench_hosts
